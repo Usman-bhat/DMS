@@ -1,0 +1,51 @@
+Bismillah 
+
+first of all i thank ALLAH SWT who give me this oppertunityu and knowledge to comple this projuct, so that drasgah can be managed with technology.
+
+this is the documnentaion of the API's which are used in the android app of the darasgah.
+
+As its deficult top understand the structure of API and tits nature so I that is MOhammad Usman Bhat am writing Thsi documention for the people that use it without my presencde so that they dont waste there time eading the source  code. And Also "Time is Money"
+
+INDEX........
+1. Login
+2. GetCreditData
+3. GetDebitData
+4. setCreditData
+5. setDebitData
+
+NOTE: these are all the end points that this api contain. and they all come under the domain name and the name space that is mentioned below.
+    NAMESPACE:[{( "https://domain.com/Android_api/")}]
+
+BIsmillah allah alrahman alraheem;
+
+1.Login
+    This end point is useed to log in user from android app so that he can access the routs that are secured.
+    REQUEST:
+    -> Routname: NAMESPACE/login.php,
+    -> Request Method : POST,
+    -> DATA Required : "email,password"
+
+    developer has to send the request from app to this rout with method POST and post data 'email & password'
+    eg.POST https://localhost/Darasgah_mag/Android_api/login.php 
+        email=ybhat39@gmail.com&password=12345
+
+    RESPONCE:
+        this endpoint returns two keys 
+        accessKey
+        ->refreshKey
+        AccessKey is used to access any of the protected route and the Refreshkey is used to refresh the accesskey after its expiration
+        INFO:
+            ->accessKey: its simply a JWT which is sent with request as Authorization header with "Bearer" as suffices. iyts life span is 24 hours and can be regenerated with the help of refresh key 
+            -> refreshKey: its used to refresh the accessKey and sent with the requewst just like accesskey but it only works on one route that is Login rout and the request must contain one POST perimeter that is "refresh" with any value and an authentication token eg. 
+                POST https://localhost/Darasgah_mag/Android_api/login.php HTTP/1.1
+                content-type: application/x-www-form-urlencoded
+                Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJ5YmhhdDM5QGdtYWlsLmNvbSIsImlhdCI6MTY3MTYwMzczNSwiZXhwIjoxNjcxNjA3MzM1LCJuYmYiOjM2MDAwfQ.-O2zLOuGblFd3MUIGo6t0pS1u3pjFIIr-wTLriwYr2Y
+
+                refresh=1
+
+        
+
+
+    
+
+

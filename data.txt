@@ -1,0 +1,80 @@
+SELECT * FROM `students` WHERE t_admission_date BETWEEN '2022-01-01' AND '2022-12-30'
+
+
+SELECT * FROM `audit_debit` WHERE month(dt_date)=11 and YEAR(dt_date)=2022
+
+
+
+//final
+SELECT SUM(dt_amount) FROM `audit_debit` WHERE month(dt_date)=11 and YEAR(dt_date)=2022
+
+/*SELECT dt_amount FROM `audit_debit` WHERE month(dt_date)=12 and YEAR(dt_date)=2022 AND dt_for='pay';*/
+select month(dt_date) , SUM(dt_amount) from audit_debit WHERE YEAR(dt_date) = 2022 GROUP By MONTH(dt_date) order By MONTH(dt_date)
+
+http://localhost/Darasgah_mag/Audit_API_FOL/debit_data_api.php
+
+
+
+SELECT `r_id`, `r_sid`, `r_date`, `r_exid`,`r_adaygi`, `r_lahja`, `r_tajweed`, `r_exam`,`t_admission_no`, `t_in_exam`, `t_status`,`t_name`,ex_date FROM `result`, `students`,`exam` WHERE r_exid ='1'  and t_status='active' and r_sid = t_admission_no AND DATE_FORMAT(ex_date,'%y-%c,%d') = DATE_FORMAT(r_date,'%y-%c,%d')
+
+
+
+<?php
+                                    $query =  "SELECT * FROM `students`  \n". "ORDER BY `students`.`t_status` ASC";
+                                    $query_run = mysqli_query($con, $query);
+                                    if ($query_run->num_rows > 0) {
+                                        // output data of each row
+                                        while ($row = $query_run->fetch_assoc()) {
+                                    ?>
+
+
+                                            <tr>
+                                                <td> <?php echo $row["t_admission_no"]; ?> </td>
+                                                <td> <?php echo $row["t_name"]; ?> </td>
+                                                <td><?php echo $row["t_parentage"]; ?></td>
+                                                <td><?php echo $row["t_phone_number"]; ?></td>
+                                                <td><?php echo $row["t_status"]; ?></td>
+
+
+                                                <td>
+                                                    <a href="show_student.php?sid=<?php echo $row["t_admission_no"]; ?>" class="btn btn-sm btn-primary" type="submit">
+                                                        <i class="fas fa-eye"></i> Show
+                                                    </a>
+                                                </td>
+                                                <td>
+
+                                                    <a href="edit_student.php?sid=<?php echo $row["t_admission_no"]; ?>" class="btn btn-sm btn-success">
+                                                        <i class="fas fa-edit"></i> Edit
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <button type="button" value="<?php echo $row["t_admission_no"]; ?>" class="btn btn-sm btn-danger delete_btn">
+                                                        <i class="fas fa-trash"></i> delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+
+                                    <?php
+                                        }
+                                    } else {
+                                        echo "<h1> No Data Found</h1>";
+                                    }
+                                    ?>
+
+
+
+
+==============================================================================================
+select
+    a.cr_id,
+    a.cr_amount,
+    a.cr_by,
+    a.cr_reciept_no,
+    b.for_for cr_for
+from audit_credit  a join cr_dr_for  b
+on a.cr_for_id = b.for_id
+
+INSERT INTO `audit_credit`( `cr_amount`, `cr_by`, `cr_reciept_no`, `cr_reciept_by`, `cr_for_id`) VALUES ('122','[value-2]','233','[value-4]',(SELECT for_id FROM cr_dr_for where for_for = 'food' limit 1))
+
+================================================================================================

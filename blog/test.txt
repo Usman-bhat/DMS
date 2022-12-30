@@ -1,0 +1,86 @@
+ <?php
+                include("../admin/config/dbcon.php");
+                // $editor = $_SESSION['editor'];
+                $query = "SELECT * FROM posts LIMIT 6";
+                $query_run = mysqli_query($con, $query);
+                if ($query_run->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $query_run->fetch_assoc()) { ?>
+
+
+<?php echo $row["p_title"]; ?>
+<?php echo (substr($row["p_body"], 0, 100) . "..."); ?>
+<?php echo $row["p_crud"]; ?>
+
+                                        <?php
+                                        $time = strtotime($row["p_date"]);
+                                        $date = date('d-M-Y', $time);
+                                        echo $date;
+                                        ?>
+
+                    <?php
+                    }
+                } else {
+                    echo "No Data Found";
+                }
+                ?>
+
+
+
+
+
+                <div class="post-list">
+                    <div class="row m-2">
+                        <div class="col-sm-2">
+                            <div class="picture">
+                                <img alt="Opt wizard thumbnail" src="images/quran1.jpg">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h4>
+                                <a hre="#" class="username">
+                                    <label class="label label-info">Title Here</label>
+                                </a>
+                            </h4>
+                            <h5>
+                                <i class="fa fa-calendar"></i>
+                                DAte here
+                            </h5>
+                            <p class="description">Post DESC</p>
+                        </div>
+                        <div class="col-sm-4" data-no-turbolink="">
+                            <a class="btn btn-info btn-download btn-round pull-right " href="post.php?p_crud=crudhere">
+                                <i class="fa fa-share"></i> View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="container" id="load_btn_class">
+                <button class="btn btn-outline-primary" id="load_more_btn" data-id="">Load More</button>
+            </div>
+
+
+
+
+            <style>
+        .preloader {
+            display: -webkit - flex;
+            display: -ms - flexbox;
+            display: flex;
+            background-color: #f4f6f9;
+            height: 100 vh;
+            width: 100%;
+            transition: height200 ms linear;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 9999;
+        }
+
+        .animation__shake {
+            -webkit-animation: shake 1500 ms;
+            animation: shake 1500 ms;
+        }
+    </style>

@@ -1,0 +1,35 @@
+
+
+
+
+http://localhost/Darasgah_mag/Audit_API_FOL/debit_data_api.php?year=2022&status=active
+
+
+
+###
+
+http://localhost/Darasgah_mag/Audit_API_FOL/get_student_list_api.php?year=2022;-- &status=active
+
+###
+
+http://localhost/Darasgah_mag/Android_api/login.php?email=ybhat39@gmail.com&password=12345
+
+
+###
+GET http://localhost/Darasgah_mag/admin/includes/script.php
+
+###
+GET  https://localhost/Darasgah_mag/Android_api/dbcon.php
+
+
+
+###
+POST https://localhost/Darasgah_mag/Android_api/login.php HTTP/1.1
+content-type: application/x-www-form-urlencoded
+
+email=ybhat39%40gmail.com&password=12345
+
+###
+POST https://localhost/Darasgah_mag/Android_api/getSetData.php HTTP/1.1
+content-type: application/x-www-form-urlencoded
+Authorization: bearer jyyyyyyyyyyyyyyyyyyyyyyyyyyycfgvhjvtyc

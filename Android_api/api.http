@@ -1,0 +1,33 @@
+
+GET  https://localhost/Darasgah_mag/Android_api/test.php
+
+
+###
+POST https://localhost/Darasgah_mag/Android_api/login.php HTTP/1.1
+content-type: application/x-www-form-urlencoded
+# Authorization: Bearer 
+
+email=ybhat39@gmail.com&password=12345
+
+
+
+###
+POST https://localhost/Darasgah_mag/Android_api/login.php HTTP/1.1
+content-type: application/x-www-form-urlencoded
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJ5YmhhdDM5QGdtYWlsLmNvbSIsImlhdCI6MTY3MTYwMzczNSwiZXhwIjoxNjcxNjA3MzM1LCJuYmYiOjM2MDAwfQ.-O2zLOuGblFd3MUIGo6t0pS1u3pjFIIr-wTLriwYr2Y
+
+refresh=1
+
+###
+POST https://localhost/Darasgah_mag/Android_api/getSetData.php
+content-type: application/x-www-form-urlencoded
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJ5YmhhdDM5QGdtYWlsLmNvbSIsImlhdCI6MTY3MTYxNzY4NiwiZXhwIjoxNjcxNjE4ODg2LCJuYmYiOjM2MDAwfQ.jhEOoPbea0SfoF5zv5vh8rWpSeGdPah0QU85yWUKQQE
+
+action=getCreditData&year=2022
+
+
+###
+POST https://localhost/Darasgah_mag/Android_api/logout.php
+content-type: application/x-www-form-urlencoded
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJ5YmhhdDM5QGdtYWlsLmNvbSIsImlhdCI6MTY3MTYxNzY4NiwiZXhwIjoxNjcxNjIxMjg2LCJuYmYiOjM2MDAwfQ.3rsGt6MDILtQYrgtxUkilOftlVLKJqandr3ipB7w9aQ
+
