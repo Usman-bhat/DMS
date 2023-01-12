@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("admin/config/dbcon.php");
+include("Audit_API_FOL/table_names.php");
 
 
 //replace slashes
@@ -14,7 +15,7 @@ $password= mysqli_real_escape_string($con,$password1);
 $key="allah";
 $hash = hash_hmac('sha256',$password,$key);
 
-$query = "SELECT * FROM users WHERE u_email = '$email' && u_password='$hash' LIMIT 1";
+$query = "SELECT * FROM "._name("users")." WHERE u_email = '$email' && u_password='$hash' LIMIT 1";
 $query_run = mysqli_query($con, $query);
 if (mysqli_num_rows($query_run) > 0) {
     $_SESSION["user"] = $email;

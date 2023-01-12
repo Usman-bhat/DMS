@@ -4,6 +4,7 @@ require("auth.php");
 include("includes/header.php");
 include("includes/topbar.php");
 include("./config/dbcon.php");
+include("../Audit_API_FOL/table_names.php");
 
 if (isset($_GET['admin_id'])) {
     $arr = array("/","'",";","SELECT","UNION",")");
@@ -14,7 +15,7 @@ if(0< count(array_intersect(explode(' ',strtolower($_GET['admin_id'])),$arr))){
     $admin1 = stripcslashes($_GET['admin_id']);
     $admin_id = mysqli_real_escape_string($con,$admin1);
 
-    $query = "SELECT * FROM users WHERE u_id = '$admin_id' LIMIT 1";
+    $query = "SELECT * FROM "._name('users')." WHERE u_id = '$admin_id' LIMIT 1";
     $query_run = mysqli_query($con, $query);
     if ($query_run) {
         foreach ($query_run as $row) { ?>

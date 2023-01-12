@@ -140,7 +140,7 @@ include("includes/topbar.php");
 <?php include("includes/script.php"); ?>
 <script>
     $(document).ready(function() {
-    var year = '2018,2014,2018,2022' //new Date().getFullYear();
+    var year = '2018,2014,2018,2022,'+new Date().getFullYear();
     // console.log(year);
     var status ="active";
     
@@ -162,7 +162,7 @@ include("includes/topbar.php");
         // console.log(jqq);
     })
     request.fail(function(header,status,error){
-        // console.log(error);
+        console.log(error);
     })
     request.always(function(){
         // console.log("always");

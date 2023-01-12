@@ -5,6 +5,7 @@ require("includes/sidebar.php");
 include("includes/header.php");
 include("includes/topbar.php");
 include("config/dbcon.php");
+include("../Audit_API_FOL/table_names.php");
 
 ?>
 <!-- Preloader -->
@@ -53,7 +54,7 @@ include("config/dbcon.php");
                         <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
                         <!-- Total Students box -->
                         <?php
-                        $query = "SELECT * FROM students";
+                        $query = "SELECT * FROM "._name('students');
                         $query_run = mysqli_query($con, $query);
                         if ($query_run) {
 
@@ -80,7 +81,7 @@ include("config/dbcon.php");
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
                         <?php
-                        $query = "SELECT COUNT(*) FROM students WHERE t_status='active'";
+                        $query = "SELECT COUNT(*) FROM "._name('students')." WHERE t_status='active'";
                         $query_run_active = mysqli_query($con, $query);
                         if ($query_run_active) {
                         ?>
@@ -131,7 +132,7 @@ include("config/dbcon.php");
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
                         <?php
-                        $query = "SELECT COUNT(*)  FROM students WHERE t_class='nazirah'";
+                        $query = "SELECT COUNT(*)  FROM "._name('students')." WHERE t_class='nazirah'";
                         $query_run_active = mysqli_query($con, $query);
                         if ($query_run_active) {
                         ?>

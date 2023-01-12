@@ -4,6 +4,7 @@ require("includes/sidebar.php");
 
 include("includes/header.php");
 include("includes/topbar.php");
+include("../Audit_API_FOL/table_names.php");
 ?>
 <div class="content-wrapper">
     <div class="conainer">
@@ -30,7 +31,7 @@ include("includes/topbar.php");
                             <tbody>
                                 <?php
                                 include("config/dbcon.php");
-                                $query = "SELECT * FROM news";
+                                $query = "SELECT * FROM "._name('news');
                                 $query_run = mysqli_query($con, $query);
                                 if ($query_run->num_rows > 0) {
                                     // output data of each row

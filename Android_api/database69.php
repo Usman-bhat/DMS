@@ -4,7 +4,7 @@ class Database
     private $localhost = "localhost";
     private $username = "root";
     private $password = "";
-    private $database = "misbah_ul_uloom";
+    private $database = "dms";
 
     public $mysqli = "";
     private $result = array();
@@ -18,7 +18,7 @@ class Database
             $this->conn = true;
 
             if ($this->mysqli->connect_error) {
-                array_push($this->result, $this->mysqli_connection_error);
+                array_push($this->result,$this->mysqli -> connect_error);
                 return false;
             }
         } else {
@@ -29,12 +29,13 @@ class Database
     // insert data
     public function insert($table, $params = array())
     {
+        
         if ($this->tableExist($table)) {
             $table_column = implode(', ', array_keys($params));
             $table_value = implode("', '", array_values($params));
 
             $sql = "INSERT INTO $table ($table_column) VALUES ('$table_value')";
-            echo $sql;
+            // echo $sql;
             if ($this->mysqli->query($sql)) {
                 array_push($this->result, true);
                 return true;
@@ -48,7 +49,7 @@ class Database
     }
 
     // get data
-    public function select($table, $row = "*", $join = null, $where = null, $order = null, $limit = null)
+    public function select($table, $row = "*", $join = null, $where = null, $order = null, $limit = null, $group = null)
     {
         if ($this->tableExist($table)) {
             $sql = "SELECT $row FROM $table";
@@ -58,14 +59,19 @@ class Database
             if ($where != null) {
                 $sql .= " WHERE $where";
             }
+            if ($group != null) {
+                $sql .= " GROUP BY $group ";
+            }
             if ($order != null) {
                 $sql .= " ORDER BY $order";
             }
             if ($limit != null) {
                 $sql .= " LIMIT $limit";
             }
-            $query = $this->mysqli->query($sql);
+            
             // echo $sql;
+
+            $query = $this->mysqli->query($sql);
             if ($query) {
                 $this->result = $query->fetch_all(MYSQLI_ASSOC);
                 return true;

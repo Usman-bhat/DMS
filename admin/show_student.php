@@ -3,6 +3,7 @@ require("auth.php");
 
 include("includes/header.php");
 include("config/dbcon.php");
+include("../Audit_API_FOL/table_names.php");
 ?>
 
 
@@ -20,7 +21,7 @@ if(0< count(array_intersect(explode(' ',strtolower($_GET['sid'])),$arr))){?>
     echo ("<p>No data found</>");
     echo "</div>";
 }else{
-$query = "SELECT * FROM students WHERE t_admission_no='$student_id' LIMIT 1";
+$query = "SELECT * FROM "._name('students')." WHERE t_admission_no='$student_id' LIMIT 1";
 $query_run = mysqli_query($con, $query);
 if ($query_run->num_rows > 0) {
     // output data of each row

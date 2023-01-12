@@ -9,6 +9,7 @@ if(isset($_REQUEST['year'])){
     //     echo '<h3 class="text-center">Bad Request</h3>';
     // }
     $query =  "SELECT * FROM `students` WHERE YEAR(`t_admission_date`) IN ( ".$year. ") AND t_status = '".$status ."'" ;
+    // echo $query;
     $query_run = mysqli_query($con, $query);
     if(!$query_run){
         echo'<h3 class="text-center">Error Please try later</h3>';

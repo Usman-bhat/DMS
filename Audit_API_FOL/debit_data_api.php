@@ -3,10 +3,12 @@
 function get_Data($for){
 // require('C:\xampp\htdocs\Darasgah_mag\admin\auth.php');
 include('C:\xampp\htdocs\Darasgah_mag\admin\config\dbcon.php');
+include("table_names.php");
+
 
     $amount= [0,0,0,0,0,0,0,0,0,0,0,0];
     $months= [];
-$query = "select month(dt_date) , SUM(dt_amount) from audit_debit WHERE YEAR(dt_date) = 2022 AND dt_for= '".$for. "' GROUP By MONTH(dt_date) order By MONTH(dt_date)";
+$query = "select month(dt_date) , SUM(dt_amount) from "._name("dt")." WHERE YEAR(dt_date) = 2022 AND dt_for= '".$for. "' GROUP By MONTH(dt_date) order By MONTH(dt_date)";
 /*
 "select month(dt_date) , SUM(dt_amount) from audit_debit WHERE YEAR(dt_date) = 2022 AND dt_for= 'pay' GROUP By MONTH(dt_date) order By MONTH(dt_date)";
 */

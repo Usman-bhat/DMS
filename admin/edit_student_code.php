@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("config/dbcon.php");
+include("../Audit_API_FOL/table_names.php");
 if (isset($_POST['update_student'])) {
     $addno =mysqli_real_escape_string($con, $_POST['addno']);
     $formno =mysqli_real_escape_string($con,  $_POST['formno']);
@@ -32,7 +33,7 @@ if (isset($_POST['update_student'])) {
     }
 
 
-    $update_query = "UPDATE students SET t_form_no='$formno',t_name=' $name',t_parentage='$parantage',t_address='$address',
+    $update_query = "UPDATE "._name("students")." SET t_form_no='$formno',t_name=' $name',t_parentage='$parantage',t_address='$address',
     t_aadhar='$aadharno',t_dob='$dob',t_phone_number='$phno',t_status='$status',
     t_class='$class',t_photo='$filename' WHERE t_admission_no='$addno'";
 

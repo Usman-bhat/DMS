@@ -4,6 +4,7 @@ require("includes/sidebar.php");
 
 include("includes/header.php");
 include("includes/topbar.php");
+include("../Audit_API_FOL/table_names.php");
 ?>
 <script src="assets/plugins/jquery-form/jquery.form.js"></script>
 
@@ -49,12 +50,13 @@ include("includes/topbar.php");
                         <p>
                         <?php
                         include("config/dbcon.php");
-                        $query =  "SELECT t_admission_no FROM students ORDER BY t_admission_no DESC LIMIT 1";
+                        $query =  "SELECT t_admission_no FROM "._name("students")." ORDER BY t_admission_no DESC LIMIT 1";
                         $query_run = mysqli_query($con, $query);
-                        $data =  mysqli_fetch_row($query_run)[0];
+                        $data =  mysqli_fetch_row($query_run);
+                        // print_r($data);
 
                         if($data ){
-                            echo "Last Students admission number was <b>". $data  ."</b>" ;
+                            echo "Last Students admission number was <b>". $data[0]."</b>" ;
                         } else echo "No admission No found";
 
                         

@@ -143,7 +143,7 @@ if(0< count(array_intersect(explode(' ',strtolower($_GET['sid'])),$arr))){?>
         </div>
     </div>
     <!-- /.card -->
-</div>
+
 
 <?php
                       }

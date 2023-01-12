@@ -53,7 +53,7 @@ include("../admin/config/dbcon.php");
                 echo ("<p>No data found</>");
                 echo "</div>";
             }else{
-            $query = "SELECT * FROM posts WHERE p_id = '$post_id' LIMIT 1";
+            $query = "SELECT * FROM post WHERE p_id = '$post_id' LIMIT 1";
             $query_run = mysqli_query($con, $query);
             if ($query_run->num_rows > 0) {
                 // output data of each row
@@ -70,7 +70,7 @@ include("../admin/config/dbcon.php");
                     <form action="editor_code.php" method="POST">
                         <div class="card-body">
                             <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
-                            <label for="utitle">Name</label>
+                            <label for="utitle">Title</label>
                             <input class="form-control" required name="utitle" type="text" value="<?php echo $row["p_title"]; ?>">
                             <br>
                             <label for="utags">Tags</label>
@@ -78,7 +78,7 @@ include("../admin/config/dbcon.php");
                             <br>
                             <label for="ucategory">Category</label>
                             <select class="form-control" name="ucategory">
-                                <option value="<?php echo $row["p_category"]; ?>"><?php echo $row["p_title"]; ?></option>
+                                <option value="<?php echo $row["p_category"]; ?>"><?php echo $row["p_category"]; ?></option>
                                 <option value="quran">Quran</option>
                                 <option value="hadees">hadees</option>
                                 <option value="other">Other</option>

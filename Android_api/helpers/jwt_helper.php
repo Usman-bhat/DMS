@@ -29,7 +29,8 @@ class jwtHelper{
     // assignAccessToken To client 
     function signAccessToken($email){
         $issuedAt   = new DateTimeImmutable();
-        $expire= $issuedAt->modify('+1440 minutes')->getTimestamp();
+        // $expire= $issuedAt->modify('+1440 minutes')->getTimestamp();
+        $expire= $issuedAt->modify('+10 minutes')->getTimestamp();
         $accessTokenArr = array(
             "iss" => ($this -> iss),
             "aud" => $email,
@@ -48,6 +49,7 @@ class jwtHelper{
     function signRefreshToken($email){
         $issuedAt   = new DateTimeImmutable();
         $expire= $issuedAt->modify('+86400 minutes')->getTimestamp();
+        // $expire= $issuedAt->modify('+1 minutes')->getTimestamp();
         $refreshTokenArr = array(
             "iss" => ($this -> iss),
             "aud" => $email,

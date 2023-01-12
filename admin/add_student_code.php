@@ -2,6 +2,7 @@
 <?php
 session_start();
 include("config/dbcon.php");
+include("../Audit_API_FOL/table_names.php");
 
 if (isset($_POST["addstudent"])) {
 
@@ -29,7 +30,7 @@ if (isset($_POST["addstudent"])) {
     } else {
 
 
-        $student_query = "INSERT INTO students(t_admission_no,t_form_no,t_name,t_parentage,t_address,t_aadhar,t_admission_date,t_dob,t_phone_number,t_class,t_status,t_photo) 
+        $student_query = "INSERT INTO "._name("students")."(t_admission_no,t_form_no,t_name,t_parentage,t_address,t_aadhar,t_admission_date,t_dob,t_phone_number,t_class,t_status,t_photo) 
                         VALUES ('$addno','$formno','$name','$parantage','$address','$aadharno','$doa','$dob','$phno','$class','$status','$filename')";
 
         $stuent_query_run = mysqli_query($con, $student_query);

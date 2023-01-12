@@ -4,6 +4,7 @@ require("includes/sidebar.php");
 
 include("includes/header.php");
 include("includes/topbar.php");
+include("../Audit_API_FOL/table_names.php");
 ?>
 <script src="assets/plugins/jquery-form/jquery.form.js"></script>
 <?php
@@ -14,7 +15,7 @@ if(isset($_POST['generateHidden'])){
     $year = mysqli_real_escape_string($con,$_POST['syear']);
     $class = mysqli_real_escape_string($con,$_POST['sclass']);
 
-    $sql = "SELECT * FROM `result` WHERE date(r_date)='".$year."' AND r_exam='mahana'";
+    $sql = "SELECT * FROM "._name("result")." WHERE date(r_date)='".$year."' AND r_exam='mahana'";
     echo "------------------------------------------------------".$sql;
 }
 

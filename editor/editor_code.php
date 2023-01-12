@@ -13,7 +13,7 @@ if (isset($_POST['add_post'])) {
     $body =mysqli_real_escape_string($con,  $_POST['body']);
     $by = $_SESSION['editor'];
 
-    $query = "INSERT INTO posts(p_title,p_body,p_by,p_category,p_tags) VALUES 
+    $query = "INSERT INTO post(p_title,p_body,p_by,p_category,p_tags) VALUES 
     ('$title','$body','$by','$cat','$tags')";
     $query_run = mysqli_query($con, $query);
     if ($query_run) {
@@ -45,7 +45,7 @@ if (isset($_POST['edit_post'])) {
     $cat = mysqli_real_escape_string($con, $_POST['ucategory']);
     $body = mysqli_real_escape_string($con, $_POST['ubody']);
 
-    $query = "UPDATE posts SET p_title='$title',p_body='$body',p_category='$cat',p_tags='$tags' WHERE p_id='$post_id'";
+    $query = "UPDATE post SET p_title='$title',p_body='$body',p_category='$cat',p_tags='$tags' WHERE p_id='$post_id'";
     $query_run = mysqli_query($con, $query);
     if ($query_run) {
         $_SESSION["query_success"] = True;

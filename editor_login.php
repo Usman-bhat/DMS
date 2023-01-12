@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("admin/config/dbcon.php");
+include("Audit_API_FOL/table_names.php");
 
 // $email = $_POST['email'];
 $email = mysqli_real_escape_string($con,$_POST['email']);
@@ -9,7 +10,7 @@ $password= mysqli_real_escape_string($con,$_POST['password']);
 $key="allah";
 $hash = hash_hmac('sha256',$password,$key);
 
-$query = "SELECT * FROM editors WHERE e_email = '$email' && e_password='$hash' LIMIT 1";
+$query = "SELECT * FROM "._name("editor")." WHERE e_email = '$email' && e_password='$hash' LIMIT 1";
 $query_run = mysqli_query($con, $query);
 
 

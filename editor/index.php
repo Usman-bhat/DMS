@@ -90,7 +90,7 @@ include("editor_auth.php");
                 <?php
                 include("../admin/config/dbcon.php");
                 $editor = $_SESSION['editor'];
-                $query = "SELECT * FROM posts WHERE p_by = '$editor' ORDER BY p_category ASC";
+                $query = "SELECT * FROM post WHERE p_by = '$editor' ORDER BY p_category ASC";
                 $query_run = mysqli_query($con, $query);
                 if ($query_run->num_rows > 0) {
                     // output data of each row
