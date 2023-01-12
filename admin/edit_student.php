@@ -92,11 +92,12 @@ if(0< count(array_intersect(explode(' ',strtolower($_GET['sid'])),$arr))){?>
                     </div>
                     <div class="form-group">
                         <label for="dob">Date of Birth</label>
-                        <input type="date" value="<?php echo $row["t_dob"]; ?>" name="dob" class="form-control" placeholder="Enter Date of Birth">
+                        <input type="date" value="<?php echo $row["t_dob"]; ?>" name="dob" class="form-control" placeholder="<?php echo $row["t_dob"]; ?>">
                     </div>
                     <div class="form-group">
                         <label for="doa">Date of Admission</label>
-                        <input type="date" value="<?php echo $row["t_admission_date"]; ?>" name="doa" class="form-control" placeholder="Date of Admission">
+                        <small style="color: red;">Cannot Update This</small>
+                        <input type="date" value="<?php echo $row["t_admission_date"]; ?>" name="doa" class="form-control" placeholder="<?php echo $row["t_admission_date"]; ?>">
                     </div>
                     <div class="form-group">
                         <label for="phno">Phone Number</label>

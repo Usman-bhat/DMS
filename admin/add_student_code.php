@@ -20,8 +20,14 @@ if (isset($_POST["addstudent"])) {
     $image = $_FILES['image']['name'];
 
     $allowed_extension = array('png', 'jpg', 'jpeg');
-    $file_extension = pathinfo($image, PATHINFO_EXTENSION);
-    $filename = time() . '.' . $file_extension;
+    if($image){
+        $file_extension = pathinfo($image, PATHINFO_EXTENSION);
+        $filename = time() . '.' . $file_extension;
+    }else{
+        $file_extension = "jpg";
+        $filename = "noimg.jpg";
+    }
+    
 
     if (!in_array($file_extension, $allowed_extension)) {
         $_SESSION['status'] = "extenson not allowed";
@@ -30,8 +36,9 @@ if (isset($_POST["addstudent"])) {
     } else {
 
 
-        $student_query = "INSERT INTO "._name("students")."(t_admission_no,t_form_no,t_name,t_parentage,t_address,t_aadhar,t_admission_date,t_dob,t_phone_number,t_class,t_status,t_photo) 
+        $student_query = "INSERT INTO "._name("students")." (t_admission_no,t_form_no,t_name,t_parentage,t_address,t_aadhar,t_admission_date,t_dob,t_phone_number,t_class,t_status,t_photo) 
                         VALUES ('$addno','$formno','$name','$parantage','$address','$aadharno','$doa','$dob','$phno','$class','$status','$filename')";
+        echo"$student_query";
 
         $stuent_query_run = mysqli_query($con, $student_query);
         if ($stuent_query_run) {

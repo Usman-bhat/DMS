@@ -8,7 +8,7 @@ if (isset($_POST['page_no'])) {
     $page = 0;
 }
 
-$query = "SELECT * FROM posts LIMIT {$page},$limit";
+$query = "SELECT * FROM post LIMIT {$page},$limit";
 $query_run = mysqli_query($con, $query) or die("Query unsuccessfull");
 if (mysqli_num_rows($query_run) > 0) {
     $output  = "";

@@ -10,7 +10,7 @@ function sumArray(array){
 
   
   <?php
-    include 'C:\xampp\htdocs\Darasgah_mag\Audit_API_FOL\debit_data_api.php'; 
+    include './../Audit_API_FOL/debit_data_api.php'; 
     ?>
   $(function () {
     /* ChartJS */

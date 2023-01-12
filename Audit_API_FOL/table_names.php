@@ -3,7 +3,12 @@ $name = array("students" => "students","users" => "users","cr" => "credit_detail
 
 function _name($str){
     global $name;
-    return $name["$str"];
+    if(!empty($name[$str])){
+        return $name["$str"];
+    }
+    return $str;
+
+    
     // echo in_array('adt',$name)?"this":"hiss";
 //     if(in_array("$str",$name)){
 //         return($name[$str]);

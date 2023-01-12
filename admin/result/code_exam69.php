@@ -22,6 +22,7 @@ if(isset($_GET['action']) && $_GET['action']=='addExam'){
         }else{
         $row=mysqli_fetch_row($result1);
         $_SESSION['examId']=$row[0];
+        $_SESSION['examDate']=$examdate;
         header("LOCATION: add_exam.php");
         }
 
@@ -32,7 +33,7 @@ if(isset($_GET['action']) && $_GET['action']=='addExam'){
 if(isset($_POST['action']) && isset($_SESSION['examId']) && $_POST['action']=='addStudentToExam'){
     $examId1=$_SESSION['examId'];
     $sid1 = mysqli_real_escape_string($con,$_POST['sid']);
-    $sql2="INSERT INTO `result`(`r_sid`, `r_exid`) VALUES ('".$sid1."','".$examId1."')";    
+    $sql2="INSERT INTO `result`(`r_sid`, `r_exid`,`r_date`) VALUES ('".$sid1."','".$examId1."','".$_SESSION['examDate']."')";    
     $result2 = mysqli_query($con,$sql2);
         if (!$result2){
         echo "error";
@@ -119,6 +120,7 @@ if(isset($_POST['action']) &&  $_POST['action']=='createExamFinalbtn'){
             $result3 = mysqli_query($con,$sql3);
             if($result3){
                 unset($_SESSION["examId"]);
+                unset($_SESSION["examDate"]);
                 echo "success";
             }else{
                 echo "error";

@@ -37,13 +37,15 @@ if (isset($_POST['update_student'])) {
     t_aadhar='$aadharno',t_dob='$dob',t_phone_number='$phno',t_status='$status',
     t_class='$class',t_photo='$filename' WHERE t_admission_no='$addno'";
 
+    echo"$update_query";
+
     $update_query_run = mysqli_query($con, $update_query);
     if ($update_query_run) {
         if ($image != '') {
             move_uploaded_file($_FILES['image']['tmp_name'], 'images/student_images/' . $filename);
         }
         $_SESSION["query_success"] = true;
-        $_SESSION['status'] = "Student Updated Successfull";
+        $_SESSION['status'] = "Updated Successfully";
         header('LOCATION: edit_student.php?sid=' . $addno);
         exit(0);
     } else {

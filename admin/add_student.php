@@ -140,8 +140,6 @@ include("../Audit_API_FOL/table_names.php");
         <!-- /.card -->
     </div>
 
-
-</div>
 <!-- <script>
     $(document).ready(function() {
                 $('#Student-form').submit(function(event) {

@@ -38,7 +38,7 @@
                 <?php
                 include("../admin/config/dbcon.php");
                 $crud = $_GET['p_crud'];
-                $query = "SELECT * FROM posts WHERE p_crud ='$crud' LIMIT 1";
+                $query = "SELECT * FROM post WHERE p_crud ='$crud' LIMIT 1";
                 $query_run = mysqli_query($con, $query);
                 if ($query_run->num_rows > 0) {
                     // output data of each row

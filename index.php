@@ -216,7 +216,7 @@ include("Audit_API_FOL/table_names.php");
                 </div>
                 <?php
                 include("admin/config/dbcon.php");
-                $news_query = "SELECT * FROM". _name("news")." ORDER BY n_date DESC LIMIT 3 ";
+                $news_query = "SELECT * FROM ". _name("news")." ORDER BY n_date DESC LIMIT 3 ";
                 $news_query_run = mysqli_query($con, $news_query);
                 if ($news_query_run) {
                     while ($row = $news_query_run->fetch_assoc()) { ?>
