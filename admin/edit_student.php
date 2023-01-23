@@ -16,7 +16,7 @@ include("config/dbcon.php");
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Edit Student</h1>
+                    <h1 class="m-0"><?= __('Edit Student')?></h1>
 
                     <!-- for alterts start -->
                     <?php include("alert.php"); ?>
@@ -24,8 +24,8 @@ include("config/dbcon.php");
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                        <li class="breadcrumb-item active">Edit Student</li>
+                        <li class="breadcrumb-item"><a href="index.php"><?= __('Home')?></a></li>
+                        <li class="breadcrumb-item active"><?= __('Edit Student')?></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -39,7 +39,7 @@ include("config/dbcon.php");
         <!-- general form elements -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Edit student</h3>
+                <h3 class="card-title"><?= __('Edit Student')?></h3>
                 <?php
                 $student_id = $_GET['sid'];
                 $arr = array("/","'",";","-","/*","SELECT","UNION",")");
@@ -47,10 +47,10 @@ if(0< count(array_intersect(explode(' ',strtolower($_GET['sid'])),$arr))){?>
     <a class="btn btn-success m-5" href="index.php">Home </a>
     <div class="alert alert-info alert-dismissible m-3">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <h5><i class="icon fas fa-info"></i> Alert!</h5>
+        <h5><i class="icon fas fa-info"></i> <?= __('Alert')?></h5>
     <?php
-    echo ("<h1> Wrong Id</h1>");
-    echo ("<p>No data found</>");
+    echo ("<h1> ".__('Wrong Id')."</h1>");
+    echo ("<p>".__('No Data Found')."</>");
     echo "</div>";
 }else{
                 $query = "SELECT * FROM students WHERE t_admission_no=$student_id LIMIT 1";

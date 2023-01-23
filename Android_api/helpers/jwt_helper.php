@@ -6,20 +6,20 @@ include "php-jwt/src/JWT.php";
 include "php-jwt/src/JWK.php";
 include "php-jwt/src/Key.php";
 include "php-jwt/src/CachedKeySet.php";
-include "predis/autoload.php";
+// include "predis/autoload.php";
 
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
-Predis\Autoloader::register();
+// Predis\Autoloader::register();
 
 
 
 
 class jwtHelper{
     
-    private $accessTokenKey= "MadrasaMisbahUlUloomBatagund";
-    private $refreshTokenKey= "MadrasaMisbahUlUloomBatagund11";
+    private $accessTokenKey= "MadrasaMisbahUlUloomBatagundAccessTokenKey";
+    private $refreshTokenKey= "MadrasaMisbahUlUloomBatagundRefreshTokenKey";
     private $iss = 'localhost';
      
     
@@ -48,8 +48,8 @@ class jwtHelper{
     // assignRefreshToken To client 
     function signRefreshToken($email){
         $issuedAt   = new DateTimeImmutable();
-        $expire= $issuedAt->modify('+86400 minutes')->getTimestamp();
-        // $expire= $issuedAt->modify('+1 minutes')->getTimestamp();
+        // $expire= $issuedAt->modify('+86400 minutes')->getTimestamp();
+        $expire= $issuedAt->modify('+1 minutes')->getTimestamp();
         $refreshTokenArr = array(
             "iss" => ($this -> iss),
             "aud" => $email,
@@ -60,9 +60,10 @@ class jwtHelper{
         
         $refreshToken = JWT::encode($refreshTokenArr, $this -> refreshTokenKey, 'HS256');
 
+
     
-        $client1 = new Predis\Client();
-        $client1->set($email, $refreshToken,'ex',$expire);
+        // $client1 = new Predis\Client();
+        // $client1->set($email, $refreshToken,'ex',$expire);
         return $refreshToken;
     }
 
@@ -81,16 +82,17 @@ class jwtHelper{
     // getAccessToken To client 
     function verifyRefreshToken($token){
         // Predis\Autoloader::register();
-        $client1 = new Predis\Client();
+        // $client1 = new Predis\Client();
         $jwt = explode(" ",$token);
         $decoded = JWT::decode($jwt[1], new Key($this -> refreshTokenKey, 'HS256'));
-        $value = $client1->get($decoded->aud);
-        
-        if($value){
+        // $value = $client1->get($decoded->aud);
+        // echo $jwt[1];
+        // echo $value;
+        // if($value==$jwt[1]){
             return $decoded->aud;
-        }else{
-            return false;
-        }
+        // }else{
+        //     return false;
+        // }
     }
     
     // delete client 

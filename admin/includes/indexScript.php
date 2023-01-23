@@ -21,9 +21,9 @@ function sumArray(array){
     var areaChartData = {
 
       // labels : monthes_food,
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',''],
+      labels: ['<?= __('Jan')?>', '<?= __('Fab')?>', '<?= __('March')?>', '<?= __('April')?>', '<?= __('May')?>', '<?= __('June')?>', '<?= __('July')?>', '<?= __('Aug')?>', '<?= __('Sep')?>', '<?= __('Oct')?>', '<?= __('Nov')?>', '<?= __('Dec')?>'],
       datasets: [{
-          label: 'Construction',
+          label: '<?= __('Construction')?>',
           backgroundColor: 'rgba(87, 81, 81, 0.4)',
           borderColor: 'rgba(87, 81, 81, 1)',
           pointRadius: true,
@@ -34,7 +34,7 @@ function sumArray(array){
           data: amount_construction
         },
         {
-          label: 'Food',
+          label: '<?= __('Food')?>',
           backgroundColor: 'rgba(252, 186, 3, 0.9)',
           borderColor: 'rgba(252, 186, 3, 1)',
           pointRadius: true,
@@ -45,7 +45,7 @@ function sumArray(array){
           data: amount_food
         },
         {
-          label: 'Pay',
+          label: '<?= __('Pay')?>',
           backgroundColor: 'rgba(51,82,60,0.9)',
           borderColor: 'rgba(51,82,60,1)',
           pointRadius: true,
@@ -56,7 +56,7 @@ function sumArray(array){
           data: amount_pay
         },
         {
-          label: 'Bills',
+          label: '<?= __('Bills')?>',
           backgroundColor: 'rgba(77,143,209, 0.8)',
           borderColor: 'rgba(77,143,209, 1)',
           pointRadius: true,
@@ -67,7 +67,7 @@ function sumArray(array){
           data: amount_bills
         },
         {
-          label: 'others',
+          label: '<?= __('Others')?>',
           backgroundColor: 'rgba(199,181,169, 0.7)',
           borderColor: 'rgba(199,181,169, 1)',
           pointRadius: true,
@@ -111,7 +111,7 @@ function sumArray(array){
    // Donut Chart mainnn     --------------------------------------------------------------------------------------------------
    var pieChartCanvas = $('#sales-chart-canvas').get(0).getContext('2d')
   var pieData = {
-    labels: ['Construction', 'Food', 'Pay', 'Bills', 'others'],
+    labels: ['<?= __('Construction')?>', '<?= __('Food')?>', '<?= __('Pay')?>', '<?= __('Bills')?>', '<?= __('Others')?>'],
     datasets: [{
       data:[sumArray(amount_construction),sumArray(amount_food),sumArray(amount_pay),sumArray(amount_bills),sumArray(amount_others)] ,
       // data: ['5','521','566','145','445','566','145','445','566','145','445'],

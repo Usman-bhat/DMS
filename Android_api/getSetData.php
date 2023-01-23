@@ -37,7 +37,7 @@ $debitTable = _name('dt');
                             ];
                             $where = $data['month'] ? "YEAR(cr_date) = '".$data['year']."' AND MONTH(cr_date)='".$data['month']."' ":"YEAR(cr_date) = '".$data['year']."'";
                             // echo $where;
-                            $dataFromDb = $db->select($creditTable, "*", null, $where,null, null);
+                            $dataFromDb = $db->select($creditTable, "*", null, $where,"cr_date DESC", null);
                             if($dataFromDb){
                                 // print_r($db->getResult());
                                 echo json_encode($db->getResult());
@@ -65,7 +65,7 @@ $debitTable = _name('dt');
                             ];
                             $where = $data['month'] ? "YEAR(dt_date) = '".$data['year']."' AND MONTH(dt_date)='".$data['month']."' ":"YEAR(dt_date) = '".$data['year']."'";
                             // echo $where;
-                            $dataFromDb = $db->select($debitTable, "*", null, $where,null, null);
+                            $dataFromDb = $db->select($debitTable, "*", null, $where,"dt_date DESC", null);
                             if($dataFromDb){
                                 // print_r($db->getResult());
                                 echo json_encode($db->getResult());
@@ -228,14 +228,17 @@ $debitTable = _name('dt');
 
                             /**
                              * getdata for pie charts in app
+                             * @parms year
+                             * @parms table
                              * @QUERY = select year(cr_date) , SUM(cr_amount) from credit_detail  GROUP By year(cr_date) order By year(cr_date);
                              */
                     case 'getPieChatData':
-                        if(isset($_POST['table'])){
+                        if(isset($_POST['table']) && isset($_POST['year'])){
                             $table = mysqli_real_escape_string($db->mysqli,$_POST['table']);
+                            $yearPie = mysqli_real_escape_string($db->mysqli,$_POST['year']);
                             if($table ==="cr"){
-                                $select1 = "year(cr_date) AS year  , SUM(cr_amount) AS amount";
-                                $dataFromDb1 = $db->select($creditTable, $select1, null, null,"year(cr_date)",null,"year(cr_date)");
+                                $select1 = "monthname(cr_date) AS year  , SUM(cr_amount) AS amount";
+                                $dataFromDb1 = $db->select($creditTable, $select1,null, "year(cr_date)= ".$yearPie,"month(cr_date)",null,"month(cr_date)");
                                 $data6 = $db->getResult();
 
                                 if($data6){
@@ -245,8 +248,8 @@ $debitTable = _name('dt');
                                 }
 
                             }else if($table ==="dt"){
-                                $select1 = "year(dt_date) AS year  , SUM(dt_amount) AS amount";
-                                $dataFromDb1 = $db->select($debitTable, $select1, null, null,"year(dt_date)",null,"year(dt_date)");
+                                $select1 = "monthname(dt_date) AS year  , SUM(dt_amount) AS amount";
+                                $dataFromDb1 = $db->select($debitTable, $select1, null, "year(dt_date)= ".$yearPie,"month(dt_date)",null,"month(dt_date)");
                                 $data6 = $db->getResult();
 
                                 if($data6){

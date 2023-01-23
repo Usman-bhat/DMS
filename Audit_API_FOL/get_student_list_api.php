@@ -20,8 +20,8 @@ if(isset($_REQUEST['year'])){
         while ($row = mysqli_fetch_assoc($query_run)) {
            echo ' <tr>
             <td>'.$row["t_admission_no"].'</td>
-            <td>'.$row["t_name"].'</td>
-            <td>'.$row["t_parentage"].'</td>
+            <td class="ur_text">'.$row["t_name_ur"].'</td>
+            <td class="ur_text">'.$row["t_parentage_ur"].'</td>
             <td>'.$row["t_phone_number"].'</td>
             <td>'.$row["t_status"].'</td>
             <td>

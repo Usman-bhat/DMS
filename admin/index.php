@@ -7,6 +7,7 @@ include("includes/topbar.php");
 include("config/dbcon.php");
 include("../Audit_API_FOL/table_names.php");
 
+
 ?>
 <!-- Preloader -->
 <div class="preloader flex-column justify-content-center align-items-center">
@@ -29,12 +30,12 @@ include("../Audit_API_FOL/table_names.php");
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Mohtamim Dashboard</h1>
+                    <h1 class="m-0"><?= __('Mohtamim Dashboard')?></h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item"><a href="#"><?= __('Home')?></a></li>
+                        <li class="breadcrumb-item active"><?= __('Dashboard')?></li>
                         
                     </ol>
                 </div><!-- /.col -->
@@ -60,7 +61,7 @@ include("../Audit_API_FOL/table_names.php");
 
                         ?>
                         <div class="info-box-content">
-                            <span class="info-box-text">total Students</span>
+                            <span class="info-box-text"><?= __('Total Students')?></span>
                             <span class="info-box-number">
                                 <?php echo (mysqli_num_rows($query_run));   ?>
                             </span>
@@ -86,7 +87,7 @@ include("../Audit_API_FOL/table_names.php");
                         if ($query_run_active) {
                         ?>
                         <div class="info-box-content">
-                            <span class="info-box-text">Active Students</span>
+                            <span class="info-box-text"><?= __('Active Students')?></span>
                             <span class="info-box-number"><?php echo (mysqli_num_rows($query_run_active));   ?></span>
                             <?php
                         } else {
@@ -113,7 +114,7 @@ include("../Audit_API_FOL/table_names.php");
                         if ($query_run_active) {
                         ?>
                         <div class="info-box-content">
-                            <span class="info-box-text">Hifiz Class</span>
+                            <span class="info-box-text"><?= __('Hifiz Class')?></span>
                             <span class="info-box-number"><?php echo (mysqli_num_rows($query_run_active));   ?></span>
                             <?php
                         } else {
@@ -137,7 +138,7 @@ include("../Audit_API_FOL/table_names.php");
                         if ($query_run_active) {
                         ?>
                         <div class="info-box-content">
-                            <span class="info-box-text">Nazrah class</span>
+                            <span class="info-box-text"><?= __('Nazrah Class')?></span>
                             <span class="info-box-number"><?php echo (mysqli_num_rows($query_run_active)); ?></span>
                             <?php
                         } else {
@@ -162,15 +163,15 @@ include("../Audit_API_FOL/table_names.php");
             <div class="card-header">
                 <h3 class="card-title">
                     <i class="fas fa-chart-pie mr-1"></i>
-                    Sales
+                    <?= __('Credit')?>
                 </h3>
                 <div class="card-tools">
                     <ul class="nav nav-pills ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
+                            <a class="nav-link active" href="#revenue-chart" data-toggle="tab"><?= __('Area')?></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
+                            <a class="nav-link" href="#sales-chart" data-toggle="tab"><?= __('Donut')?></a>
                         </li>
                     </ul>
                 </div>

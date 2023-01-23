@@ -78,3 +78,19 @@ on a.cr_for_id = b.for_id
 INSERT INTO `audit_credit`( `cr_amount`, `cr_by`, `cr_reciept_no`, `cr_reciept_by`, `cr_for_id`) VALUES ('122','[value-2]','233','[value-4]',(SELECT for_id FROM cr_dr_for where for_for = 'food' limit 1))
 
 ================================================================================================
+
+
+public class ConstantCommon {
+    public static String DUA_1 = "ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الأَجْرُ إِنْ شَاءَ اللَّهُ";
+    public static String DUA_1_TRANSLATION = "ترٛیش  گٔجِم  تہٕ  رگن  لوٚگُم  سگ  تہٕ  اگر  ربّن  یوٚژھ  تیٚلہِ  میلہِ  اجر  تہِ";
+    public static String DUA_2 = "اَللّٰهُمَّ اِنِّيْٓ  اَسْئَلُكَ بِرَحْمَتِكَ الَّتِيْ وَسِعَتْ كُلَّ شَىْءٍ اَنْ تَغْفِرَ لِي";
+    public static String DUA_2_TRANSLATION = "اللہ! بیشک میں تجھ سے تیری رحمت کے ذریعے سے سوال کرتا ہوں، جس (رحمت) نے ہر چیز کو گھیر رکھا ہے کہ تو مجھے بخش دے۔";
+    public static String DUA_3 = "اَفْطَرَ عِنْدَكُمْ الصَّآئِـمُوْنَ  وَاَكَلَ طَعَامَكُمُ الْاَبْرَارُ  وَصَلَّتْ عَـلَـيْكُمُ الْـمَلاۗئِكَةُ";
+    public static String DUA_3_TRANSLATION = "روزدار  چِھ  توٚہیہ  نِشہِ  افطار  کران  تہٕ  نیک  لوکھ  چِھ  تُہنٛد  کھیٚن  کھیٚوان  تہٕ  اللہ تعالیٰ  سٕند  فرشتہٕ  چِھ  توٚہیہ  خٲطرٕ  دعا  کران";
+    public static String DUA_IFTAR = "افطار کرنہِ  وقتُک دُعا";
+    public static String IFTAR_KARWANAY = "افطار کرناون  وٲلِس  خٲطرٕ  دُعا";
+    public static String SHAHDAT_ARABIC = "اَشْهَدُ اَنْ لَّآ اِلٰهَ اِلَّا اللهُ وَحْدَہٗ لَاشَرِيْكَ لَہٗ وَاَشْهَدُ اَنَّ مُحَمَّدًا عَبْدُهٗ وَرَسُولُہٗ\u200e\n";
+    public static String SHAHDAT_ENG = "Ash-hadu Al-laaa Ilaaha Illa-llaahu Wahdahoo Laa Shareeka Lahoo Wa-Ash-hadu Anna Muhammadan Abduhoo Wa Rasooluhu";
+    public static String SHAHDAT_ENG_HEADER = "I bear witness!\n\n";
+    public static String SHAHDAT_ENG_MEANING = "بہٕ  چُھس  گوٲہی  دِوان  زِ  خُدایس  ورٲے  چُھنہٕ  عبادتُک  حقدار  بیٚیہِ  کانٛہہ،  سُہ  چُھ  کُنُے،  تٔمِس  چُھنہٕ  کانٛہہ  شریک،  بیٚیہ  چُھس  بہٕ  گوٲہی  دِوان  زِ  حضرت  محمدؐ  چِھ  اللہ تعالیٰ  سٕند  بندٕہ  تہٕ  رسول";
+}

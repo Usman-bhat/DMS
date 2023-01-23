@@ -9,7 +9,7 @@ GET  https://localhost/Darasgah_mag/Android_api/test.php
 ###
 POST https://localhost/Darasgah_mag/Android_api/login.php HTTP/1.1
 content-type: application/x-www-form-urlencoded
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJ5YmhhdDM5QGdtYWlsLmNvbSIsImlhdCI6MTY3MTYwMzczNSwiZXhwIjoxNjcxNjA3MzM1LCJuYmYiOjM2MDAwfQ.-O2zLOuGblFd3MUIGo6t0pS1u3pjFIIr-wTLriwYr2Y
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJ5YmhhdDM5QGdtYWlsLmNvbSIsImlhdCI6MTY3NDQ2NjM1NywiZXhwIjoxNjc0NDY2OTU3LCJuYmYiOjE2NzQ0NjYzNTd9.1u3FIojmJ7lJ2XLy7wiOvsjQxj1GCvcqMrAnUfKjm0Q
 
 refresh=1
 
@@ -22,7 +22,7 @@ email=ybhat39@gmail.com&password=12345
 ###
 POST https://localhost/Darasgah_mag/Android_api/getSetData.php
 content-type: application/x-www-form-urlencoded
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJ5YmhhdDM5QGdtYWlsLmNvbSIsImlhdCI6MTY3MzQ1NzEwMywiZXhwIjoxNjczNDU3NzAzLCJuYmYiOjE2NzM0NTcxMDN9.Xa3-wYIIs0x7Lu0MtQsmSUr3QecN1HdtO5U20ISV5Ak
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJ5YmhhdDM5QGdtYWlsLmNvbSIsImlhdCI6MTY3NDQ2NjM1NywiZXhwIjoxNjc0NDY2OTU3LCJuYmYiOjE2NzQ0NjYzNTd9.1u3FIojmJ7lJ2XLy7wiOvsjQxj1GCvcqMrAnUfKjm0Q
 
 action=setDebitData&amount=1020&by=me&for=food
 
@@ -30,9 +30,9 @@ action=setDebitData&amount=1020&by=me&for=food
 ###
 POST https://localhost/Darasgah_mag/Android_api/getSetData.php
 content-type: application/x-www-form-urlencoded
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJ5YmhhdDM5QGdtYWlsLmNvbSIsImlhdCI6MTY3MzQ2MDcyNiwiZXhwIjoxNjczNDYxMzI2LCJuYmYiOjE2NzM0NjA3MjZ9.ezqTnBfUHsVP2N6sifht7vDhj3yPLX5qMD6U3hkBY9c
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJ5YmhhdDM5QGdtYWlsLmNvbSIsImlhdCI6MTY3MzczMzY3MiwiZXhwIjoxNjczNzM0MjcyLCJuYmYiOjE2NzM3MzM2NzJ9.cm8flFAjDvCRUPYmGzpFNdBAQ9seNgZgEvLXdOSfIos
 
-action=getLineChatData&table=cr&year=2023
+action=getDebitData&year=2023
 
 
 ###

@@ -56,7 +56,7 @@ try {
         // $value = $client->get($userid);
         // echo($userid);
         if(!$userid){
-            throw new Exception("Bad Request", 400);
+            throw new Exception("Bad Request11", 400);
         }else{
 
         
@@ -80,7 +80,6 @@ try {
         "error"=>$e->getCode(),
         "message"=>$e->getMessage()
     ));
-    // print_r($e);
 }
 
 ?>

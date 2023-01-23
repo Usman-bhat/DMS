@@ -1,11 +1,23 @@
 <?php
 require("auth.php");
+require("../lang.php");
 
 include("includes/header.php");
 include("config/dbcon.php");
 include("../Audit_API_FOL/table_names.php");
 ?>
+<style>
+    @font-face {
+    font-family: jameelnoori;
+    src: url('../fonts/Jameel Noori Nastaleeq Kasheeda.ttf');
+    }
+    .ur_text{
+        font-family: 'jameelnoori';
+        font-size: larger;
+        /* font-family: 'Courier New', Courier, monospace; */
+    }
 
+</style>
 
 <?php
 
@@ -28,6 +40,7 @@ if ($query_run->num_rows > 0) {
     while ($row = $query_run->fetch_assoc()) {
 
 ?>
+
         <!-- Profile Image -->
         <div class="container">
             <div class="card card-primary card-outline">
@@ -36,53 +49,111 @@ if ($query_run->num_rows > 0) {
                         <img class="profile-user-img img-fluid img-circle" src="images/student_images/<?php echo $row["t_photo"]; ?>" alt="Student Profile Picture">
                     </div>
 
-                    <h3 class="profile-username text-center"><?php echo $row["t_name"]; ?></h3>
+                    <h3 class="profile-username text-center ur_text"><?php echo $row["t_name_ur"]; ?></h3>
 
-                    <p class="text-muted text-center">Student Details</p>
+                    <p class="text-muted text-center"><?= __('Student Details')?></p>
 
                     <ul class="list-group list-group-unbordered mb-3">
-                        <li class="list-group-item">
-                            <b>Admission Numbers</b>
-                            <b class="float-right pr-5 text-success"><?php echo $row["t_admission_no"]; ?></b>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Form Number</b>
-                            <b class="float-right pr-5 text-success"><?php echo $row["t_form_no"]; ?></b>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Admission date </b>
-                            <b class="float-right pr-5 text-success"><?php echo $row["t_admission_date"]; ?></b>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Parantage </b>
-                            <b class="float-right pr-5 text-success"><?php echo $row["t_parentage"]; ?></b>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Address </b>
-                            <b class="float-right pr-5 text-success"><?php echo $row["t_address"]; ?></b>
-                        </li>
-                        <li class="list-group-item">
-                            <b> Aadhar Number</b>
+                        <div class="row">
+                            <div class="col">
+                            <li class="list-group-item">
+                                    <b><?= __('Name')?></b>
+                                    <b class="float-right pr-5 text-success"><?php echo $row["t_name"]; ?></b>
+                                </li>
+                            </div>
+                            <div class="col">
+                            <li class="list-group-item">
+                                    <b class="ur_text"><?= __('Name Urdu')?></b>
+                                    <b class="float-right pr-5 text-success ur_text"><?php echo $row["t_name_ur"]; ?></b>
+                                </li>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <li class="list-group-item">
+                                    <b><?= __('Admission Number')?></b>
+                                    <b class="float-right pr-5 text-success"><?php echo $row["t_admission_no"]; ?></b>
+                                </li>
+                            </div>
+                            <div class="col">
+                                <li class="list-group-item">
+                                    <b><?= __('Form Number')?></b>
+                                    <b class="float-right pr-5 text-success"><?php echo $row["t_form_no"]; ?></b>
+                                    </li>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col">
+                                <li class="list-group-item">
+                                <b><?= __('Admission Date')?> </b>
+                                <b class="float-right pr-5 text-success"><?php echo $row["t_admission_date"]; ?></b>
+                                </li>
+                            </div>
+                            <div class="col">
+                                <li class="list-group-item">
+                                <b> <?= __('Date Of Birth')?></b>
+                                <b class="float-right pr-5 text-success"><?php echo $row["t_dob"]; ?></b>
+                                    </li>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <li class="list-group-item">
+                                <b><?= __('Parentage')?></b>
+                                <b class="float-right pr-5 text-success"><?php echo $row["t_parentage"]; ?></b>
+                                </li>
+                            </div>
+                            <div class="col">
+                                <li class="list-group-item">
+                                <b class="ur_text"><?= __('Parentage Urdu')?> </b>
+                                <b class="float-right pr-5 text-success ur_text"><?php echo $row["t_parentage_ur"]; ?></b>
+                                </li>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <li class="list-group-item">
+                                <b><?= __('Address')?> </b>
+                                <b class="float-right pr-5 text-success"><?php echo $row["t_address"]; ?></b>
+                                </li>
+                            </div>
+                            <div class="col">
+                                <li class="list-group-item">
+                                <b class="ur_text"><?= __('Address Urdu')?> </b>
+                                <b class="float-right pr-5 text-success ur_text"><?php echo $row["t_address_ur"]; ?></b>
+                                </li>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col">
+                            <li class="list-group-item">
+                            <b> <?= __('Aadhar Number')?></b>
                             <b class="float-right pr-5 text-success"><?php echo $row["t_aadhar"]; ?></b>
                         </li>
-                        <li class="list-group-item">
-                            <b>Phone Number </b>
+                            </div>
+                            <div class="col">
+                            <li class="list-group-item">
+                            <b><?= __('Phone Number')?> </b>
                             <b class="float-right pr-5 text-success "><?php echo $row["t_phone_number"]; ?></b>
                         </li>
-                        <li class="list-group-item">
-                            <b> Date of birth</b>
-                            <b class="float-right pr-5 text-success"><?php echo $row["t_dob"]; ?></b>
-                        </li>
-                        <li class="list-group-item">
-                            <b> Class</b>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col">
+                            <li class="list-group-item">
+                            <b> <?= __('Class')?></b>
                             <b class="float-right pr-5 text-success"><?php echo $row["t_class"]; ?></b>
                         </li>
-
-
+                            </div>
+                        </div>
 
                     </ul>
-                    <button onclick="print_student()" rel="noopener" target="_blank" class="btn btn-primary btn-block"><i class="fas fa-print"></i> Print </button>
-                    <a href="generateIdCard.php?sid=<?php echo $row["t_admission_no"]; ?>"   class="btn btn-primary btn-block"><i class="fas fa-print"></i> Generate IdCard </a>
+                    <button onclick="print_student()" rel="noopener" target="_blank" class="btn btn-primary btn-block"><i class="fas fa-print"></i> <?= __('Print')?> </button>
+                    <a href="generateIdCard.php?sid=<?php echo $row["t_admission_no"]; ?>"   class="btn btn-primary btn-block"><i class="fas fa-id-card"></i> <?= __('Generate IDCard')?> </a>
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -92,13 +163,14 @@ if ($query_run->num_rows > 0) {
     <?php
     }
 } else { ?>
-    <a class="btn btn-success m-5" href="index.php">Home </a>
+    <a class="btn btn-success m-5" href="index.php"><?= __('Home')?> </a>
     <div class="alert alert-info alert-dismissible m-3">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <h5><i class="icon fas fa-info"></i> Alert!</h5>
+        <h5><i class="icon fas fa-info"></i> <?= __('Alert')?></h5>
     <?php
-    echo ("<h1> No Data Found</h1>");
-    echo ("<p> no data found with this id please ty another one !!!</>");
+    echo ('<h1> No Data Found<span class="ur_text h"> ......کوئی ڈیٹا نہیں ملا </span></h1>');
+    echo ("<p> no data found with this id please ty another one.</p>");
+    echo ('<p class="ur_text"> اس آئی ڈی کے ساتھ کوئی ڈیٹا نہیں ملا، براہ کرم کوئی اور آئی ڈی  ٹائپ کریں۔ </p>');
     echo "</div>";
 }} ?>
 
