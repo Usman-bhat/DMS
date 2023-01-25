@@ -21,15 +21,15 @@ if(isset($_GET['status'])){
 }
 ?>
 <style>
-    @font-face {
+    /* @font-face {
     font-family: jameelnoori;
     src: url('../fonts/Jameel Noori Nastaleeq Kasheeda.ttf');
     }
     .ur_text{
         font-family: 'jameelnoori';
         font-size: large;
-        /* font-family: 'Courier New', Courier, monospace; */
-    }
+        /* font-family: 'Courier New', Courier, monospace;
+    } */
 
 </style>
 <div class="content-wrapper">

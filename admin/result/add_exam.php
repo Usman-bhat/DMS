@@ -12,7 +12,7 @@ include "header.php";
 
 <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add Exam</h3>
+                <h3 class="card-title"><?= __('Add Exam')?></h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -20,7 +20,7 @@ include "header.php";
                 <div class="card-body">                  
                 <div class="row">
                 <div class="col">
-                  <label for="exampleInputEmail1">Examn Type</label>
+                  <label for="exampleInputEmail1"><?= __('Exam Type')?></label>
                   <select name="examType" class="form-control">
                         <option value="mahana">mahana</option>
                         <option value="salana">Salana</option>
@@ -28,26 +28,26 @@ include "header.php";
                     </select>
                   </div>
                   <div class="col">
-                  <label for="exampleInputEmail1">Examn Date</label>
+                  <label for="exampleInputEmail1"><?= __('Date')?></label>
                     <input type="date" name="examDate" class="form-control" placeholder="Exam Date">
                   </div>
                   <div class="col">
-                  <label for="exampleInputEmail1">Examner Name</label>
+                  <label for="exampleInputEmail1"><?= __('Examner Name')?></label>
                     <input type="text" name="examner" class="form-control" placeholder="Examner Name">
                   </div>   
             </div>
                 <div class="row mt-3">
                 <div class="col">
-                  <label for="exampleInputEmail1">Total Marks</label>
+                  <label for="exampleInputEmail1"><?= __('Total Marks')?></label>
                   <input type="text" name="totalMarks" class="form-control" placeholder="Total Marks">
                   </div>
                   <div class="col">
-                  <label for="exampleInputEmail1">Exam Remarks</label>
-                    <input type="text" name="examRemarks" class="form-control" placeholder="Exam Remarks">
+                  <label for="exampleInputEmail1"><?= __('Exam Remarks')?></label>
+                    <input type="text" name="examRemarks" class="form-control" placeholder="<?= __('Exam Remarks')?>">
                   </div>   
             </div>
                 <div class="card-footer text-center">
-                  <button type="submit" value="add_exam" class="btn btn-lg btn-primary">Submit</button>
+                  <button type="submit" value="add_exam" class="btn btn-lg btn-primary"><?= __('Submit')?></button>
                 </div>
 
                 
@@ -74,10 +74,10 @@ include "header.php";
                     <table class="table table-hover text-nowrap" id="studentTable">
                     <thead>
                       <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Action</th>
-                        <th>Action</th>
+                        <th><?= __('ID')?></th>
+                        <th><?= __('Name')?></th>
+                        <th><?= __('Action')?></th>
+                        <th><?= __('Action')?></th>
                       </tr>
                     </thead>
 
@@ -112,21 +112,21 @@ include "header.php";
                             <td><?php echo $row['t_admission_no']; ?></td>
                             <td><?php echo $row['t_name']; ?></td>
                             
-                            <td ><span id="btnAdd<?php echo $row['t_admission_no']; ?>"  data-sid="<?php echo $row['t_admission_no']; ?>" class="btn btn-success addStudentToExam <?php echo $classbtnAdd ?>">Add</span></td>
-                            <td ><span id="btnDis<?php echo $row['t_admission_no']; ?>" data-sid="<?php echo $row['t_admission_no']; ?>" class="btn btn-danger discardStudentFromExam <?php echo $classbtnDis?>">Discard</span></td>
+                            <td ><span id="btnAdd<?php echo $row['t_admission_no']; ?>"  data-sid="<?php echo $row['t_admission_no']; ?>" class="btn btn-success addStudentToExam <?php echo $classbtnAdd ?>"><?= __('Add')?></span></td>
+                            <td ><span id="btnDis<?php echo $row['t_admission_no']; ?>" data-sid="<?php echo $row['t_admission_no']; ?>" class="btn btn-danger discardStudentFromExam <?php echo $classbtnDis?>"><?= __('Discard')?></span></td>
                             
                         </tr>
                         <?php
                         }   
                         }else{
-                            echo '<tr class="text-center"><td colspan="5"><h3>No data found</h3></td><tr>';
+                            echo '<tr class="text-center"><td colspan="5"><h3>'.__('No Data Found').'</h3></td><tr>';
                         }
                     ?>
                     </tbody>
                     </table>
                 </div>
                 <div class="text-center">
-                <button class="btn btn-success" id="createExamFinalbtn">Done</a>
+                <button class="btn btn-success" id="createExamFinalbtn"><?= __('Done')?></a>
                 </div>
             </div>
             </div>

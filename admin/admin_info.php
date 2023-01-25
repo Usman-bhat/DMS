@@ -1,6 +1,6 @@
 <?php
 require("auth.php");
-
+require"../lang.php";
 include("includes/header.php");
 include("includes/topbar.php");
 include("./config/dbcon.php");
@@ -33,15 +33,15 @@ if(0< count(array_intersect(explode(' ',strtolower($_GET['admin_id'])),$arr))){
 
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
-                                <b>Name</b>
+                                <b><?= __('Name')?></b>
                                 <b class="float-right pr-5 text-success"><?php echo $row["u_name"]; ?></b>
                             </li>
                             <li class="list-group-item">
-                                <b>Role</b>
+                                <b><?= __('Role')?></b>
                                 <b class="float-right pr-5 text-success"><?php echo $row["u_role"]; ?></b>
                             </li>
                             <li class="list-group-item">
-                                <b>Email </b>
+                                <b><?= __('Email')?> </b>
                                 <b class="float-right pr-5 text-success"><?php echo $row["u_email"]; ?></b>
                             </li>
                     </div>

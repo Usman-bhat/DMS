@@ -18,7 +18,7 @@ require("../lang.php");
             foreach ($query_run as $row) { ?>
 
                 <a href="index3.html" class="brand-link">
-                    <img src=" ./assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                    <img src=" ./images/other_images/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                     <span class="brand-text font-weight-light"><?php echo ($row['u_role']); ?></span>
                 </a>
                 <!-- Sidebar -->
@@ -109,7 +109,7 @@ require("../lang.php");
                                     <li class="nav-item">
                                         <a href="result/add_exam.php" class="nav-link">
                                             <i class="far fa-user nav-icon"></i>
-                                            <p><?= __('Add Result')?></p>
+                                            <p><?= __('Add Exam')?></p>
                                         </a>
                                     </li>
                                 </ul>

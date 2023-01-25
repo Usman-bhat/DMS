@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+require "../../lang.php";
+?>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Result  | Misbah-ul-uloom</title>
+  <title><?= __('Result') ?>  | <?= __('Misbah ul Uloom') ?></title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -28,6 +30,26 @@
   <link rel="stylesheet" href="../assets/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="../assets/plugins/summernote/summernote-bs4.min.css">
+  <style>
+     @font-face {
+      font-family: nooriregular;
+      src: url('../../fonts/nooriregular.ttf');
+    }
+    @font-face {
+    font-family: jameelnoori;
+    src: url('../../fonts/Jameel Noori Nastaleeq Kasheeda.ttf');
+    }
+    <?php
+      if($_SESSION['lang']==='ur'){
+    ?>
+    body{
+      font-family: 'nooriregular';
+      font-size: large;
+    }
+    <?php 
+      }
+    ?>
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">

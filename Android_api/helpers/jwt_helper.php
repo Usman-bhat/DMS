@@ -48,8 +48,8 @@ class jwtHelper{
     // assignRefreshToken To client 
     function signRefreshToken($email){
         $issuedAt   = new DateTimeImmutable();
-        // $expire= $issuedAt->modify('+86400 minutes')->getTimestamp();
-        $expire= $issuedAt->modify('+1 minutes')->getTimestamp();
+        $expire= $issuedAt->modify('+86400 minutes')->getTimestamp();
+        // $expire= $issuedAt->modify('+1 minutes')->getTimestamp();
         $refreshTokenArr = array(
             "iss" => ($this -> iss),
             "aud" => $email,

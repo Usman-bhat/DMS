@@ -1,6 +1,8 @@
 <?php
 include "header.php";
+// require "../../lang.php";
 ?>
+
 <!-- Preloader -->
 <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="../images/user_images/noimg.jpg" alt="Loading..." height="60" width="60">
@@ -21,12 +23,12 @@ include "header.php";
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Mohtamim Dashboard</h1>
+                    <h1 class="m-0"><?= __('Mohtamim Dashboard')?></h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="../">Home</a></li>
-                        <li class="breadcrumb-item active">Results</li>
+                        <li class="breadcrumb-item"><a href="../"><?= __('Home')?></a></li>
+                        <li class="breadcrumb-item active"><?= __('Result')?></li>
                         
                     </ol>
                 </div><!-- /.col -->
@@ -37,17 +39,17 @@ include "header.php";
 
     <!-- table Start  -->
     <div class="container m-2">
-    <a href="add_exam.php"class="btn btn-success">Add exam  <i class="fas fa-plus"></i></a>
+    <a href="add_exam.php"class="btn btn-success"><?= __('Add Exam')?>  <i class="fas fa-plus"></i></a>
     </div>
     <div class="row">
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Exam List</h3>
+                  <h3 class="card-title"><?= __('Exam List')?></h3>
 
                   <div class="card-tools">
                     <div class="input-group input-group-sm" style="width: 150px;">
-                      <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                      <input type="text" name="table_search" class="form-control float-right" placeholder="<?= __('Search')?>">
 
                       <div class="input-group-append">
                         <button type="submit" class="btn btn-default">
@@ -62,11 +64,11 @@ include "header.php";
                   <table class="table table-hover text-nowrap">
                     <thead>
                       <tr>
-                        <th>ID</th>
-                        <th>Exam</th>
-                        <th>Date</th>
-                        <th>By</th>
-                        <th>Action</th>
+                        <th><?= __('ID')?></th>
+                        <th><?= __('Exam')?></th>
+                        <th><?= __('Date')?></th>
+                        <th><?= __('Exam By')?></th>
+                        <th><?= __('Action')?></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -93,15 +95,15 @@ include "header.php";
                            
                       <tr class="<?php echo $classRow; ?>">
                         <td><?php echo $row['ex_id']; ?></td>
-                        <td><?php echo $row['ex_type']; ?></td>
+                        <td><?php echo __($row['ex_type']); ?></td>
                         <td><?php echo $row['ex_date']; ?></td>
                         <td><?php echo $row['ex_by']; ?></td>
-                        <td class="text-center"><a href="add_result.php?exid=<?php echo $row['ex_id']; ?>"class="btn btn-success btn-sm"><?php echo $btnTxt; ?></a></td>
+                        <td class="text-center"><a href="add_result.php?exid=<?php echo $row['ex_id']; ?>"class="btn btn-success btn-sm"><?php echo __($btnTxt); ?></a></td>
                       </tr>
                       <?php
                         }   
                         }else{
-                            echo '<tr class="text-center"><td colspan="5"><h3>No data found</h3></td><tr>';
+                            echo '<tr class="text-center"><td colspan="5"><h3>'.__('No Data Found').'</h3></td><tr>';
                         }
                     ?>
                     </tbody>

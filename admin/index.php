@@ -11,7 +11,7 @@ include("../Audit_API_FOL/table_names.php");
 ?>
 <!-- Preloader -->
 <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="images/user_images/noimg.jpg" alt="Loading..." height="60" width="60">
+    <img class="animation__shake" src="images/other_images/splash.png" alt="Loading..." height="300" width="300">
 </div>
 
 <!-- Content Wrapper. Contains page content -->
@@ -180,9 +180,9 @@ include("../Audit_API_FOL/table_names.php");
                 <div class="tab-content p-0">
                     <!-- Morris chart - Sales -->
                     <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;">
-                        <canvas id="areaChart" height="300" style="height: 300px;"></canvas>
+                        <canvas id="areaChart" height="300" style="height: 300px; font-family: nooriregular;"></canvas>
                     </div>
-                    <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
+                    <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px; font-family: nooriregular;">
                         <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
                     </div>
                 </div>

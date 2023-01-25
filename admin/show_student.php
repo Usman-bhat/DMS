@@ -18,6 +18,26 @@ include("../Audit_API_FOL/table_names.php");
     }
 
 </style>
+ <!-- Content Header (Page header) -->
+ <div class="container ">
+ <div class="content-header border m-2">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"><?= __('Student Details')?></h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="index.php"><?= __('Home')?></a></li>
+                        <li class="breadcrumb-item active"><?= __('Dashboard')?></li>
+                        
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+ </div>
+    <!-- /.content-header -->
 
 <?php
 
@@ -29,8 +49,8 @@ if(0< count(array_intersect(explode(' ',strtolower($_GET['sid'])),$arr))){?>
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <h5><i class="icon fas fa-info"></i> Alert!</h5>
     <?php
-    echo ("<h1> Wrong Id</h1>");
-    echo ("<p>No data found</>");
+    echo ("<h1> ".__('Wrong Id')."</h1>");
+    echo ("<p>".__('No Data Found')."</>");
     echo "</div>";
 }else{
 $query = "SELECT * FROM "._name('students')." WHERE t_admission_no='$student_id' LIMIT 1";

@@ -97,7 +97,7 @@ function sumArray(array){
             display: false,
           }
         }]
-      }
+      } 
     }
 
     // This will get the first returned node in the jQuery collection.

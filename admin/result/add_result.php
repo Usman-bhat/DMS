@@ -22,12 +22,12 @@ if(!(isset($_POST['exid']) || isset($_GET['exid']))){
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Result Portal</h1>
+                    <h1 class="m-0"><?= __('Result Portal') ?></h1>
                 </div><!-- /.col -->
                   <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="../">Home</a></li>
-                        <li class="breadcrumb-item active">Results</li>
+                        <li class="breadcrumb-item"><a href="../"><?= __('Home') ?></a></li>
+                        <li class="breadcrumb-item active"><?= __('Result') ?></li>
                         
                     </ol>
                 </div><!-- /.col -->
@@ -45,7 +45,7 @@ if(!(isset($_POST['exid']) || isset($_GET['exid']))){
               <div class="card">
                 <div class="card-header">
 
-                  <h3 class="card-title">  Result
+                  <h3 class="card-title">  <?= __('Result') ?>
                     <?php
                     // if(isset($_GET['isclosed']) && $_GET['isclosed']=='1'){
                     //     echo"Add Result";
@@ -75,12 +75,13 @@ if(!(isset($_POST['exid']) || isset($_GET['exid']))){
                     <!-- class="table table-hover text-nowrap"> -->
                     <thead>
                       <tr>
-                        <th>Name</th>
-                        <th>TotalMarks</th>
-                        <th>Adagi</th>
-                        <th>Lahja</th>
-                        <th>Tajweed</th>
-                        <th>Other</th>
+                        <th><?= __('Name') ?></th>
+                        <th><?= __('Total Marks') ?></th>
+                        <th><?= __('Adagi') ?></th>
+                        <th><?= __('Lahja') ?></th>
+                        <th><?= __('Tajweed') ?></th>
+                        <th><?= __('other') ?></th>
+                        <th><?= __('Total') ?></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -109,19 +110,28 @@ if(!(isset($_POST['exid']) || isset($_GET['exid']))){
                         <td><input type="number" id="val1<?php echo $row['r_id'];?>" value ="<?php echo $row['r_adaygi']; ?>"/></td>
                         <td><input type="number" id="val2<?php echo $row['r_id'];?>" value ="<?php echo $row['r_lahja']; ?>"/></td>
                         <td><input type="number" id="val3<?php echo $row['r_id'];?>" value ="<?php echo $row['r_tajweed']; ?>"/></td>
-                        
                         <td><span class="btn btn-sm btn-success addStudentResult" data-rid="<?php echo $row['r_id']; ?>">Add</span></td>
+                        <td></td>
+
                         <!-- </form> -->
                         <?php
                         }else{
                           $genPDFbtn = '<button class="btn btn-success btn-sm">Generte pdf</button>';
+                          $marksSum=0;
                           ?>
                         <td><?php echo $row['t_name']; ?></td>
                         <td><?php echo $row['ex_total_marks']; ?></td>
-                        <td><?php echo $row['r_adaygi']; ?></td>
-                        <td><?php echo $row['r_lahja']; ?></td>
-                        <td><?php echo $row['r_tajweed']; ?></td>
+                        <td>
+                          <?php 
+                          $marksSum += $row['r_adaygi'];
+                          echo $row['r_adaygi']; ?>
+                      </td>
+                        <td><?php $marksSum += $row['r_lahja']; 
+                        echo $row['r_lahja']; ?></td>
+                        <td><?php $marksSum += $row['r_tajweed'];
+                        echo $row['r_tajweed']; ?></td>
                         <td >other</td>
+                        <td ><?= $marksSum?></td>
                         
                       <?php  
                       }

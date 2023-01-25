@@ -1,6 +1,7 @@
 <?php
 require("auth.php");
 include("config/dbcon.php");
+require"../lang.php";
 include("../Audit_API_FOL/table_names.php");
 
 if (!isset($_GET['sid'])) {
@@ -21,7 +22,7 @@ if (!isset($_GET['sid'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?= __('Generate IDCard')?></title>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
 <!-- <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
@@ -48,6 +49,7 @@ if (!isset($_GET['sid'])) {
         align-items: center;
         align-content: center;
         justify-content: center;
+        font-family: jameelnoori;
     }
     .wrapper{
         /* height: 1080px;
@@ -137,13 +139,15 @@ button:hover {
   border: #fff;
   border-style: 4;
 }
+
+</style>
     
 <?php
 $student_id = mysqli_real_escape_string($con, $_GET['sid']);
 $arr = array("/","'",";","SELECT","UNION",")");
 if(0< count(array_intersect(explode(' ',strtolower($_GET['sid'])),$arr))){
-    echo ("<h1> Wrong Id</h1>");
-    echo ("<p>No data found</>");
+    echo ("<h1>  ".__('Wrong Id')."</h1>");
+    echo ("<p>".__('No Data Found')."</>");
     // echo "</div>";
 }else{
 $query = "SELECT * FROM "._name('students')." WHERE t_admission_no='$student_id' LIMIT 1";
@@ -153,15 +157,13 @@ if ($query_run->num_rows > 0) {
     while ($row = $query_run->fetch_assoc()) {
 
 ?>
-
-</style>
     <div class="container1">
                 <h3 style="margin-top: 5px;margin-bottom: 5px;">مدرسہ مصباح العلوم بٹہ گنڈ</h3>
                 <img src="images/student_images/<?php echo $row["t_photo"]; ?>" width="100" height="100" style="margin-top: 5px;">
                 <table>
                 <tbody>
                     <tr>
-                        <td class="trd">مدرسہ مصباح العلوم بٹہ گنڈ  :</td>
+                        <td class="trd"><?php echo $row["t_name_ur"]; ?>    :</td>
                         <td class="trh"> نام</td>
 
                     </tr>
@@ -176,12 +178,12 @@ if ($query_run->num_rows > 0) {
 
                     </tr>
                     <tr>
-                        <td class="trd">گلام محمد  :</td>
+                        <td class="trd"><?php echo $row["t_parentage_ur"]; ?>   :</td>
                         <td class="trh"> باپ کا نام </td>
 
                     </tr>
                     <tr>
-                        <td class="trd">بٹہ گنڈ  :</td>
+                        <td class="trd"> <?php echo $row["t_address_ur"]; ?>  :</td>
                         <td class="trh"> پتہ</td>
                     </tr>
                     
@@ -198,8 +200,9 @@ if ($query_run->num_rows > 0) {
 
     <div class="container1" style="margin-left: 20px;">
                 <h3 style="margin-top: 5px;margin-bottom: 5px;">مدرسہ مصباح العلوم بٹہ گنڈ</h3>
-                <img src="images/student_images/noimg.jpg" width="100" height="100" style="margin-top: 5px;">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum, quae error minima reiciendis magnam rerum, earum sapiente voluptas tempora, praesentium facere expedita quod. Placeat, soluta? Soluta excepturi ab velit amet!</p>
+                <img src="images/other_images/logo.png" width="100" height="100" style="margin-top: 5px;">
+                <p><?= __('idCard Details')?></p>
+                <p><?= __('idCard Details eng')?></p>
                 <span>-----------------------------------------------------</span> 
                 
                     <h4 style="font-size: 30px;">مدرسہ مصباح العلوم بٹہ گنڈ</h4> 
@@ -218,8 +221,7 @@ if ($query_run->num_rows > 0) {
 <?php
     }
 } else { 
-    echo ("<h1> No Data Found11</h1>");
-    echo ("<p> no data found with this id please ty another one !!!</>");
+    echo ("<h1> ".__('No Data Found')."</h1>");
     // echo "</div>";
 }} ?>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>

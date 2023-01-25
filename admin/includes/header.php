@@ -28,6 +28,33 @@
   <link rel="stylesheet" href="./assets/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="./assets/plugins/summernote/summernote-bs4.min.css">
+  <style>
+    
+    @font-face {
+    font-family: jameelnoori;
+    src: url('../fonts/Jameel Noori Nastaleeq Kasheeda.ttf');
+    }
+    <?php
+      if($_SESSION['lang']==='ur'){
+    ?>
+    @font-face {
+      font-family: nooriregular;
+      src: url('../fonts/nooriregular.ttf');
+    }
+    body{
+      font-family: 'nooriregular';
+      font-size: large;
+      font-weight: bold;
+    }
+    <?php 
+      }
+    ?>
+    .ur_text{
+        font-family: 'jameelnoori';
+        font-size: larger;
+        /* font-family: 'Courier New', Courier, monospace; */
+    }
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
