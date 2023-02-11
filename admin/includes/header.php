@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+  <!-- <meta charset="utf-8"> -->
+  <meta charset="UTF-16">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= __('Admin | Misbah-ul-uloom')?></title>
 

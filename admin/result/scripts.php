@@ -43,7 +43,7 @@
 <script src=" ../assets/plugins/jszip/jszip.min.js"></script>
 <script src=" ../assets/plugins/pdfmake/pdfmake.min.js"></script>
 <script src=" ../assets/plugins/pdfmake/vfs_fonts.js"></script>
-<script src=" ../assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src=" ../assets/plugins/datatables-buttons/js/buttons.html5.js"></script>
 <script src=" ../assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src=" ../assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src=" ../assets/plugins/sweetalert2/sweetalert2.min.js"></script>
@@ -58,7 +58,9 @@ $(document).ready(function(){
     });
  
     $("#resultTable").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": true,
+      "responsive": true, 
+      "lengthChange": false,
+      "autoWidth": true,
       "buttons": ["copy", "excel", "pdf", "print"]
     }).buttons().container().appendTo('#resultTable_wrapper .col-md-6:eq(0)');
   $('#resultTable_filter').addClass('float-right');
@@ -147,6 +149,8 @@ $(document).ready(function(){
            })
     }else{
 
+      console.log("here");
+      $('#totalMarks').text((parseInt(val1)+parseInt(val2)+parseInt(val3)));
         request11 = $.ajax({
                 url:"code_exam69.php",
                 type:"post",

@@ -85,10 +85,10 @@ include "header.php";
                         while($row = mysqli_fetch_assoc($result)){
                           if($row['ex_is_closed']==0){
                             $classRow = "table-danger";
-                            $btnTxt = "Show";
+                            $btnTxt = "print";
                           }else{
                             $classRow = "";
-                            $btnTxt = "Add";
+                            $btnTxt = "add";
                             $genPDFtn="";
                           }
                            ?>
@@ -98,7 +98,7 @@ include "header.php";
                         <td><?php echo __($row['ex_type']); ?></td>
                         <td><?php echo $row['ex_date']; ?></td>
                         <td><?php echo $row['ex_by']; ?></td>
-                        <td class="text-center"><a href="add_result.php?exid=<?php echo $row['ex_id']; ?>"class="btn btn-success btn-sm"><?php echo __($btnTxt); ?></a></td>
+                        <td class="text-center"><a href="<?=$btnTxt?>_result.php?exid=<?php echo $row['ex_id']; ?>"class="btn btn-success btn-sm"><?php echo __($btnTxt); ?></a></td>
                       </tr>
                       <?php
                         }   

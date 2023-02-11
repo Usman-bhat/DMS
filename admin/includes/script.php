@@ -87,24 +87,32 @@ $(function() {
 });
 //end ready
 
+// var fontDescriptors = {
+//  *	Roboto: {
+//  *		normal: 'fonts/Roboto-Regular.ttf',
+//  *		bold: 'fonts/Roboto-Medium.ttf',
+//  *		italics: 'fonts/Roboto-Italic.ttf',
+//  *		bolditalics: 'fonts/Roboto-MediumItalic.ttf'
+//  *	}
+//  * };
 
   //csv pdf excel etc
   $(function () {
     $("#student_table").DataTable({
       "responsive": true,
       "lengthChange": false,
-      "autoWidth": false,
-      "buttons": ["copy", "excel", "pdf", "print", "colvis"]
+      "buttons": ["copy", "excel", "pdf", "print"]
     }).buttons().container().appendTo('#student_table_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": true,
-      "responsive": true,
-    });
+    $('#student_table_filter').addClass('float-right');
+    // $('#example2').DataTable({
+    //   "paging": true,
+    //   "lengthChange": false,
+    //   "searching": false,
+    //   "ordering": true,
+    //   "info": true,
+    //   "autoWidth": true,
+    //   "responsive": true,
+    // });
   });
 
 </script>

@@ -5,6 +5,7 @@ include "header.php";
 if(!(isset($_POST['exid']) || isset($_GET['exid']))){
   http_response_code(400);
   header("LOCATION: ../");
+  die();
 }
 ?>
 <!-- Preloader -->
@@ -111,7 +112,7 @@ if(!(isset($_POST['exid']) || isset($_GET['exid']))){
                         <td><input type="number" id="val2<?php echo $row['r_id'];?>" value ="<?php echo $row['r_lahja']; ?>"/></td>
                         <td><input type="number" id="val3<?php echo $row['r_id'];?>" value ="<?php echo $row['r_tajweed']; ?>"/></td>
                         <td><span class="btn btn-sm btn-success addStudentResult" data-rid="<?php echo $row['r_id']; ?>">Add</span></td>
-                        <td></td>
+                        <td id="totalMarks"><?= "jjj"; ?></td>
 
                         <!-- </form> -->
                         <?php
@@ -126,8 +127,7 @@ if(!(isset($_POST['exid']) || isset($_GET['exid']))){
                           $marksSum += $row['r_adaygi'];
                           echo $row['r_adaygi']; ?>
                       </td>
-                        <td><?php $marksSum += $row['r_lahja']; 
-                        echo $row['r_lahja']; ?></td>
+                        <td><?= $row['r_lahja']; ?></td>
                         <td><?php $marksSum += $row['r_tajweed'];
                         echo $row['r_tajweed']; ?></td>
                         <td >other</td>
@@ -157,6 +157,7 @@ if(!(isset($_POST['exid']) || isset($_GET['exid']))){
               <!-- </div> -->
               <!-- /.card -->
           <!-- table end  -->
+
 
 
 

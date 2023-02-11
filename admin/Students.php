@@ -93,8 +93,9 @@ if(isset($_GET['status'])){
                         </div>
                         </div>
                     </div> 
+                        <!-- <div class="container"> -->
                         <div class="card-body">
-                            <table id="student_table" class="table table-bordered table-striped">
+                            <table id="student_table" class="table table-bordered table-striped dataTable dtr-inline">
                                 <thead>
                                     <tr>
                                         <th>Adm no</th>
@@ -187,6 +188,7 @@ if(isset($_GET['status'])){
                                 </tfoot> -->
                             </table>
                         </div>
+                        <!-- </div> -->
                         <!-- /.card-body -->
                     </div>
                 </div>
